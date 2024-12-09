@@ -1,2 +1,4 @@
 # memory_allocator
-implementation of malloc in c
+Basic implementation of malloc in c where the user is able to request memory from a 'virtual heap' in a predefined array of set size acting as memory pool for allocation (mimicking function like mmap)
+A basic data structure is created to hold attributes of a memory chunk and a linked list is created for each chunk allocated in order to keep track of the addresses allocated and to then be able to iterate over a free list to make more future allocations by user where the first available slot matching the user requested size is then allocated to user and returned as a void pointer.
+These chunks can then be freed back to the system for future use like free() and takes in a pointer to memory block only and the linked list of memory chunks is then updated accordingly and the free list then contains a freed block that can be reused by the system.
